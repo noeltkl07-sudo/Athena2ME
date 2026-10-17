@@ -29,7 +29,7 @@
     <java jar="tools/proguard.jar" fork="true" failonerror="true">
       <arg value="-injars"/><arg value="${out}/JARVIS-unverified.jar"/>
       <arg value="-outjars"/><arg value="${out}/JARVIS.jar"/>
-      <arg value="-libraryjars"/><arg value="lib/cldcapi11.jar${path.separator}lib/midpapi20.jar"/>
+      <arg value="-libraryjars"/><arg value="lib/cldcapi11.jar${path.separator}lib/"/>
       <arg value="-microedition"/>
       <arg value="-dontshrink"/><arg value="-dontoptimize"/><arg value="-dontobfuscate"/>
       <arg value="-keep"/><arg value="public class Jarvis extends javax.microedition.midlet.MIDlet { *; }"/>
