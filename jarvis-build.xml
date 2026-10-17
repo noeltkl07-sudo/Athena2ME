@@ -22,7 +22,7 @@
         <attribute name="MicroEdition-Configuration" value="CLDC-1.0"/>
         <attribute name="MicroEdition-Profile" value="MIDP-2.0"/>
       </manifest>
-      <fileset dir="${out}/classes" includes="Jarvis.class"/>
+    <fileset dir="${out}/classes" includes="Jarvis*.class"/>
     </jar>
   </target>
   <target name="preverify" depends="package">
