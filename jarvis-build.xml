@@ -3,7 +3,7 @@
   <property name="out" value="jarvis-out"/>
   <path id="j2me.libs">
     <pathelement location="lib/cldcapi11.jar"/>
-    <pathelement location="lib/midpapi20.jar"/>
+<pathelement location="lib/midp21.jar"/>
   </path>
   <target name="compile">
     <mkdir dir="${out}/classes"/>
