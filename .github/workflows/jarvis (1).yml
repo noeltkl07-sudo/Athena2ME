@@ -1,0 +1,31 @@
+name: Build Motorola JARVIS
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/Jarvis.java'
+      - 'jarvis-build.xml'
+      - '.github/workflows/jarvis.yml'
+jobs:
+  jarvis:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+      - name: Fetch ProGuard
+        run: |
+          mkdir -p tools
+          curl -fsSL 'https://github.com/Guardsquare/proguard/releases/download/v7.4.2/proguard-7.4.2.zip' -o /tmp/proguard.zip
+          unzip -j /tmp/proguard.zip 'proguard-7.4.2/lib/proguard.jar' -d tools/
+      - name: Compile and preverify JARVIS
+        run: ant -f jarvis-build.xml
+      - name: Upload phone application
+        uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Motorola
+          path: |
+            jarvis-out/JARVIS.jar
+            jarvis-out/JARVIS.jad
